@@ -1,24 +1,27 @@
 import { useEffect, useState } from 'react';
-import { Route, Routes, useLocation } from 'react-router-dom';
+import { Route, Routes, useLocation, useNavigate } from 'react-router-dom';
 
 import Loader from './common/Loader';
 import PageTitle from './components/PageTitle';
 import SignIn from './pages/Authentication/SignIn';
-import SignUp from './pages/Authentication/SignUp';
-import Calendar from './pages/Calendar';
-import Chart from './pages/Chart';
-import ECommerce from './pages/Dashboard/ECommerce';
-import FormElements from './pages/Form/FormElements';
-import FormLayout from './pages/Form/FormLayout';
-import Profile from './pages/Profile';
-import Settings from './pages/Settings';
-import Tables from './pages/Tables';
-import Alerts from './pages/UiElements/Alerts';
-import Buttons from './pages/UiElements/Buttons';
+import MovieList from './pages/Movies/List';
+import UpdateMovie from './pages/Movies/Update';
+import AddMovie from './pages/Movies/Add';
+import UserList from './pages/User/List';
+import AddUser from './pages/User/Add';
+import UpdateUser from './pages/User/Update';
 
 function App() {
   const [loading, setLoading] = useState<boolean>(true);
   const { pathname } = useLocation();
+  const accessToken = localStorage.getItem('accessToken');
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (!accessToken) {
+      navigate('/auth/signin');
+    }
+  }, [accessToken]);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -34,110 +37,65 @@ function App() {
     <>
       <Routes>
         <Route
-          index
-          element={
-            <>
-              <PageTitle title="eCommerce Dashboard | TailAdmin - Tailwind CSS Admin Dashboard Template" />
-              <ECommerce />
-            </>
-          }
-        />
-        <Route
-          path="/calendar"
-          element={
-            <>
-              <PageTitle title="Calendar | TailAdmin - Tailwind CSS Admin Dashboard Template" />
-              <Calendar />
-            </>
-          }
-        />
-        <Route
-          path="/profile"
-          element={
-            <>
-              <PageTitle title="Profile | TailAdmin - Tailwind CSS Admin Dashboard Template" />
-              <Profile />
-            </>
-          }
-        />
-        <Route
-          path="/forms/form-elements"
-          element={
-            <>
-              <PageTitle title="Form Elements | TailAdmin - Tailwind CSS Admin Dashboard Template" />
-              <FormElements />
-            </>
-          }
-        />
-        <Route
-          path="/forms/form-layout"
-          element={
-            <>
-              <PageTitle title="Form Layout | TailAdmin - Tailwind CSS Admin Dashboard Template" />
-              <FormLayout />
-            </>
-          }
-        />
-        <Route
-          path="/tables"
-          element={
-            <>
-              <PageTitle title="Tables | TailAdmin - Tailwind CSS Admin Dashboard Template" />
-              <Tables />
-            </>
-          }
-        />
-        <Route
-          path="/settings"
-          element={
-            <>
-              <PageTitle title="Settings | TailAdmin - Tailwind CSS Admin Dashboard Template" />
-              <Settings />
-            </>
-          }
-        />
-        <Route
-          path="/chart"
-          element={
-            <>
-              <PageTitle title="Basic Chart | TailAdmin - Tailwind CSS Admin Dashboard Template" />
-              <Chart />
-            </>
-          }
-        />
-        <Route
-          path="/ui/alerts"
-          element={
-            <>
-              <PageTitle title="Alerts | TailAdmin - Tailwind CSS Admin Dashboard Template" />
-              <Alerts />
-            </>
-          }
-        />
-        <Route
-          path="/ui/buttons"
-          element={
-            <>
-              <PageTitle title="Buttons | TailAdmin - Tailwind CSS Admin Dashboard Template" />
-              <Buttons />
-            </>
-          }
-        />
-        <Route
           path="/auth/signin"
           element={
             <>
-              <PageTitle title="Signin | TailAdmin - Tailwind CSS Admin Dashboard Template" />
+              <PageTitle title="Signin | BTicket Admin" />
               <SignIn />
             </>
           }
         />
         <Route
-          path="/auth/signup"
+          path="/movie/list"
           element={
             <>
-              <PageTitle title="Signup | TailAdmin - Tailwind CSS Admin Dashboard Template" />
-              <SignUp />
+              <PageTitle title="Movie List | BTicket Admin" />
+              <MovieList />
+            </>
+          }
+        />
+        <Route
+          path="/movie/update"
+          element={
+            <>
+              <PageTitle title="Movie View | BTicket Admin" />
+              <UpdateMovie />
+            </>
+          }
+        />
+        <Route
+          path="/movie/add"
+          element={
+            <>
+              <PageTitle title="Movie Add | BTicket Admin" />
+              <AddMovie />
+            </>
+          }
+        />
+        <Route
+          path="/user/list"
+          element={
+            <>
+              <PageTitle title="User List | BTicket Admin" />
+              <UserList />
+            </>
+          }
+        />
+        <Route
+          path="/user/add"
+          element={
+            <>
+              <PageTitle title="User Add | BTicket Admin" />
+              <AddUser />
+            </>
+          }
+        />
+        <Route
+          path="/user/update"
+          element={
+            <>
+              <PageTitle title="User View | BTicket Admin" />
+              <UpdateUser />
             </>
           }
         />
