@@ -108,7 +108,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
             </h3>
 
             <ul className="mb-6 flex flex-col gap-1.5">
-            <li>
+              <li>
                 <NavLink
                   to="/user/list"
                   className={`group relative flex items-center gap-2.5 rounded-sm py-2 px-4 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-graydark dark:hover:bg-meta-4 ${
@@ -160,6 +160,27 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
                     />
                   </svg>
                   Quản lý phim
+                </NavLink>
+              </li>
+              <li>
+                <NavLink
+                  to="/theater/list"
+                  className={`group relative flex items-center gap-2.5 rounded-sm py-2 px-4 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-graydark dark:hover:bg-meta-4 ${
+                    pathname.includes('theater') && 'bg-graydark dark:bg-meta-4'
+                  }`}
+                >
+                  <svg
+                    className="fill-current"
+                    width="18"
+                    height="18"
+                    viewBox="0 0 28 18"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                    id="theatre"
+                  >
+                    <path d="M0 0v18h32V0Zm31 17H1V1h30Zm-3 5h-7v3h-2v-3h-6v3h-2v-3H5v3H1v7h30v-7h-3ZM6 31H2v-5h4Zm3 0H7v-6H6v-2h4v2H9Zm5 0h-4v-5h4Zm3 0h-2v-6h-1v-2h4v2h-1Zm5 0h-4v-5h4Zm3 0h-2v-6h-1v-2h5v2h-2Zm5-5v5h-4v-5ZM15 15a6 6 0 1 0-6-6 6 6 0 0 0 6 6Zm0-11a5 5 0 1 1-5 5 5 5 0 0 1 5-5Zm-1.5 2.07v5.86L17.9 9Zm1 1.86L16.1 9l-1.6 1.07Z"></path>
+                  </svg>
+                  Quản lý rạp
                 </NavLink>
               </li>
             </ul>
