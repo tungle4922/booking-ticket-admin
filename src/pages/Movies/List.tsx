@@ -1,4 +1,4 @@
-import { Button, Space, Table, TableProps } from 'antd';
+import { Button, Input, Space, Table, TableProps } from 'antd';
 import Breadcrumb from '../../components/Breadcrumbs/Breadcrumb';
 import DefaultLayout from '../../layout/DefaultLayout';
 import { useEffect, useState } from 'react';
@@ -73,6 +73,12 @@ const MovieList = () => {
     <DefaultLayout>
       <Breadcrumb pageName="Danh sách phim" />
       <div>
+        <div className="flex gap-6 !h-10">
+          <Input placeholder="Nhập thông tin tìm kiếm..." />
+          <Button type="primary" className="!bg-blue-500 !h-full">
+            Tìm kiếm
+          </Button>
+        </div>
         <Button type="primary" className="!bg-blue-500 float-right my-6">
           <Link to={'/movie/add'}>Thêm mới</Link>
         </Button>
