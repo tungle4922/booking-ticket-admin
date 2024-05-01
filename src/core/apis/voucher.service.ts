@@ -1,4 +1,4 @@
-import axios, { AxiosResponse } from 'axios';
+import  { AxiosResponse } from 'axios';
 import { axiosInstance } from '../shared/axios';
 
 const baseUrl = '/voucher';
@@ -6,9 +6,8 @@ const baseUrl = '/voucher';
 class VoucherService {
   async getVoucherByEmail(email: string) {
     try {
-      const res: AxiosResponse = await axios.get(
-          'http://localhost:8080/voucher/getVoucherByEmail?email=' +
-          email,
+      const res: AxiosResponse = await axiosInstance.get(
+        baseUrl+ '/getVoucherByEmail?email=' + email,
       );
       return res.data?.vouchers;
     } catch (err) {
@@ -18,8 +17,8 @@ class VoucherService {
 
   async addVoucher(body: any) {
     try {
-      const res: AxiosResponse = await axios.post(
-        'http://localhost:8080/voucher/addVoucher',
+      const res: AxiosResponse = await axiosInstance.post(
+        baseUrl + '/addVoucher',
         body,
       );
       return res.data;
