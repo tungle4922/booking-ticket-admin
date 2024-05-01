@@ -19,6 +19,9 @@ import UpdateUser from './pages/User/Update';
 import TheaterList from './pages/Theater/List';
 import AddTheater from './pages/Theater/Add';
 import UpdateTheater from './pages/Theater/Update';
+import ListUser from './pages/Voucher/ListUser';
+import ListVoucher from './pages/Voucher/ListVoucher';
+import AddVoucher from './pages/Voucher/AddVoucher';
 
 function App() {
   const [loading, setLoading] = useState<boolean>(true);
@@ -134,6 +137,33 @@ function App() {
             <>
               <PageTitle title="Theater View | BTicket Admin" />
               <UpdateTheater />
+            </>
+          }
+        />
+        <Route
+          path="/voucher/list"
+          element={
+            <>
+              <PageTitle title="User List | BTicket Admin" />
+              <ListUser />
+            </>
+          }
+        />
+        <Route
+          path="/voucher/listvoucher"
+          element={
+            <>
+              <PageTitle title="Voucher List | BTicket Admin" />
+              <ListVoucher />
+            </>
+          }
+        />
+        <Route
+          path="/voucher/add"
+          element={
+            <>
+              <PageTitle title="Add voucher | BTicket Admin" />
+              <AddVoucher />
             </>
           }
         />
