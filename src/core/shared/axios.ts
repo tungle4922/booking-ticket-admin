@@ -3,7 +3,7 @@ import axios, { AxiosInstance } from 'axios';
 const cancelTokenSource = axios.CancelToken.source();
 
 const axiosInstance: AxiosInstance = axios.create({
-  baseURL: 'http://103.95.197.219:3005',
+  baseURL: 'http://localhost:8080',
   timeout: 10000,
   headers: {
     Accept: 'application/json',
