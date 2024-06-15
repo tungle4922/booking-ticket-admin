@@ -16,6 +16,12 @@ import AddMovie from './pages/Movies/Add';
 import UserList from './pages/User/List';
 import AddUser from './pages/User/Add';
 import UpdateUser from './pages/User/Update';
+import TheaterList from './pages/Theater/List';
+import AddTheater from './pages/Theater/Add';
+import UpdateTheater from './pages/Theater/Update';
+import ListUser from './pages/Voucher/ListUser';
+import ListVoucher from './pages/Voucher/ListVoucher';
+import AddVoucher from './pages/Voucher/AddVoucher';
 
 function App() {
   const [loading, setLoading] = useState<boolean>(true);
@@ -103,6 +109,61 @@ function App() {
             <>
               <PageTitle title="User View | BTicket Admin" />
               <UpdateUser />
+            </>
+          }
+        />
+
+        <Route
+          path="/theater/list"
+          element={
+            <>
+              <PageTitle title="Theater List | BTicket Admin" />
+              <TheaterList />
+            </>
+          }
+        />
+        <Route
+          path="/theater/add"
+          element={
+            <>
+              <PageTitle title="Theater Add | BTicket Admin" />
+              <AddTheater />
+            </>
+          }
+        />
+        <Route
+          path="/theater/update"
+          element={
+            <>
+              <PageTitle title="Theater View | BTicket Admin" />
+              <UpdateTheater />
+            </>
+          }
+        />
+        <Route
+          path="/voucher/list"
+          element={
+            <>
+              <PageTitle title="User List | BTicket Admin" />
+              <ListUser />
+            </>
+          }
+        />
+        <Route
+          path="/voucher/listvoucher"
+          element={
+            <>
+              <PageTitle title="Voucher List | BTicket Admin" />
+              <ListVoucher />
+            </>
+          }
+        />
+        <Route
+          path="/voucher/add"
+          element={
+            <>
+              <PageTitle title="Add voucher | BTicket Admin" />
+              <AddVoucher />
             </>
           }
         />
