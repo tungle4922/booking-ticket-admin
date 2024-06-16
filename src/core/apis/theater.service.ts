@@ -16,14 +16,14 @@ class TheaterService {
     return res.data;
   }
 
-//   async addAMovie(body: any) {
-//     try {
-//       const res: AxiosResponse = await axiosInstance.post(baseUrl, body);
-//       return res;
-//     } catch (err) {
-//       return 0;
-//     }
-//   }
+  async addATheater(body: any) {
+    try {
+      const res: AxiosResponse = await axiosInstance.post(baseUrl, body);
+      return res;
+    } catch (err) {
+      return 0;
+    }
+  }
 }
 
 export const theaterService = new TheaterService();
